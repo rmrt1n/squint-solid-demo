@@ -1,6 +1,6 @@
 (ns routes.-layout)
 
-(defn RootLayout [{:keys [children]}]
+(defn root-layout [{:keys [children]}]
   #jsx[:<>
        [:header {:class "border-b"}
         [:nav {:class "max-w-4xl mx-auto flex items-center px-2 h-8"}

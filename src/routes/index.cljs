@@ -1,19 +1,19 @@
 (ns routes.index
   (:require
-   ["solid-js" :as s]))
+   ["../lib/solid/core.cljs" :as s]))
 
 (defn create-todos []
-  (let [[todos setTodos] (s/createSignal [])
+  (let [[todos setTodos] (s/signal [])
         storage-key  "todos"
         stored-todos (js/JSON.parse (js/localStorage.getItem storage-key))]
     (when stored-todos
       (setTodos stored-todos))
-    (s/createEffect
+    (s/effect
      (fn []
        (js/localStorage.setItem storage-key (js/JSON.stringify (todos)))))
     [todos setTodos]))
 
-(defn App []
+(defn app []
   (let [[todos setTodos] (create-todos)
         handle-submit (fn [e]
                         (let [value (get-in e [:target :todo :value])
@@ -32,5 +32,5 @@
           [:input {:name "todo"
                    :required true
                    :class "px-2 py-1 rounded border"}]
-          [:button {:class "px-2 py-1 rounded border"}
+          [:button {:class "px-2 py-1 rounded border bg-blue-500"}
            "add todo"]]]))

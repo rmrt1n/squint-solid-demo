@@ -1,16 +1,17 @@
 (ns main
   (:require
-   ["solid-js/web" :as s]
-   ["@solidjs/router" :refer [Router Route]]
+   ["solid-js/web" :as sw]
    ["./index.css"]
-   ["./routes/_layout.cljs" :refer [RootLayout]]
-   ["./routes/index.cljs" :refer [App]]))
+   ["./lib/solid/router.cljs" :as sr]
+   ["./routes/_layout.cljs" :refer [root-layout]]
+   ["./routes/index.cljs" :refer [app]]))
 
 (def root (js/document.getElementById "root"))
 
-;; solid-router is here in case we're adding more pages in the future
-(s/render
+(sw/render
  (fn []
-   #jsx[Router {:root RootLayout}
-        [Route {:path "/" :component App}]])
+   (sr/router
+    {:root root-layout
+     :routes [{:path "/"
+               :component app}]}))
  root)
