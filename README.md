@@ -1,6 +1,6 @@
 # Squint + Solid + Vite Example Todo App
 
-This is a demo/example todo app using [Squint](https://github.com/squint-cljs/squint), [Solid.js](https://solidjs.com), Vite (https://vitejs.dev), and TailwindCSS (https://tailwindcss.com).
+This is a demo/example todo app using [Squint](https://github.com/squint-cljs/squint), [Solid.js](https://solidjs.com), [Vite](https://vitejs.dev), and [TailwindCSS](https://tailwindcss.com).
 
 I wanted to build a SPA using ClojureScript, but without bringing in React. Solid.js seems like a _solid_ alternative.., so I'll be experimenting with it more in the future. This repo also acts as a "template" for my future projects using this stack.
 
